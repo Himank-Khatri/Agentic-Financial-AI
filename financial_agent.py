@@ -14,7 +14,7 @@ web_search_agent = Agent(
     name='Web Search Agent', 
     role='Search teh web for information',
     model=Groq(id='llama-3.1-70b-versatile'),
-    tools=[DuckDuckGo],
+    tools=[DuckDuckGo()],
     instructions=['Always include sources'],
     show_tool_calls=True,
     markdown=True
@@ -39,6 +39,6 @@ multi_ai_agent = Agent(
     markdown=True
 )
 
-web_search_agent.print_response("Summarize analyst recommendation and share the latest news for NVidea")
+web_search_agent.print_response("Summarize analyst recommendation and share the latest news for NIFTY50")
 
 
