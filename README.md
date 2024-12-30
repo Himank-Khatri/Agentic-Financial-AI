@@ -55,4 +55,8 @@ Access the playground app in your browser to interact with agents.
 * **Role:** Combines functionalities of Web Search and Financial agents.
 * **Features:** Ensures up-to-date and accurate data.
 
+# Screenshot
+![image](https://github.com/user-attachments/assets/73edd032-524d-4d62-a7e4-80f65c8d2d9e)
+
+
 ## 
