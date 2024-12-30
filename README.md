@@ -9,8 +9,8 @@ A multi-agent AI system using the phi framework that integrates web search and f
 ### Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone https://github.com/Himank-Khatri/Agentic-Financial-AI.git
+cd Agentic-Financial-AI
 ```
 
 ### Install dependencies:
