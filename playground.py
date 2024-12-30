@@ -1,13 +1,15 @@
 import os
 import openai
-from dotenv import load_dotenv
 from phi.agent import Agent
 from phi.model.groq import Groq
 from phi.tools.yfinance import YFinanceTools
 from phi.tools.duckduckgo import DuckDuckGo
+from phi.playground import Playground, serve_playground_app
 
+from dotenv import load_dotenv
 load_dotenv()
 groq_api_key = os.getenv('GROQ_API_KEY')
+phi_api_key = os.getenv('PHI_API_KEY')
 
 ## Web search agent
 web_search_agent = Agent(
@@ -15,7 +17,7 @@ web_search_agent = Agent(
     role='Search teh web for information',
     model=Groq(id='llama-3.1-70b-versatile'),
     tools=[DuckDuckGo()],
-    instructions=['Always include sources with timestamp of'],
+    instructions=['Always include sources with timestamp of data.'],
     show_tool_calls=True,
     markdown=True
 )
@@ -40,5 +42,7 @@ multi_ai_agent=Agent(
     markdown=True,
 )
 
+app = Playground(agents=[financial_agent, web_search_agent]).get_app()
+
 if __name__ == '__main__':
-    multi_ai_agent.print_response("Latest news for NVidia and it's impact on the stock price", stream=True)
+    serve_playground_app("playground:app", reload=True)
